@@ -38,9 +38,9 @@ class Application extends Component {
   };
 
   componentDidMount = () => {
-    const posts = firestore.collection('posts');
-
-    console.log({posts});
+    const posts = firestore.collection('posts').get().then(snapshot => {
+      console.log({snapshot});
+    })
   }
 
   handleCreate = post => {
